@@ -1,0 +1,32 @@
+var d = document.getElementById("bugs_table");
+d.className += " sortable";
+
+function sortTable(columnIndex) {
+  var table = document.getElementById("bugs_table");
+  var rows = table.rows;
+  var switching = true;
+
+  while (switching) {
+    switching = false;
+
+    for (var i = 1; i < rows.length - 1; i++) {
+      var row1 = rows[i].getElementsByTagName("td")[columnIndex];
+      var row2 = rows[i + 1].getElementsByTagName("td")[columnIndex];
+
+      if (row1.innerHTML.toLowerCase() > row2.innerHTML.toLowerCase()) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+}
+
+
+var ths = document.getElementsByTagName("th");
+
+for (var i = 0; i < ths.length; i++) {
+  ths[i].addEventListener("click", function() {
+    var columnIndex = this.cellIndex;
+    sortTable(columnIndex);
+  });
+}
