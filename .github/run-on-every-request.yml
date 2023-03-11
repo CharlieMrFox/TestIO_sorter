@@ -1,3 +1,0 @@
-name: Run on every request
-on:
-  push:
