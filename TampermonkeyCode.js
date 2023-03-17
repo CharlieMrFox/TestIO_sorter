@@ -37,7 +37,7 @@ searchInput.addEventListener('input', function() {
 });
 
 
-
+// Adds the sortable class to the table.
 
     var d = document.getElementById("bugs_table");
     d.className += " sortable";
